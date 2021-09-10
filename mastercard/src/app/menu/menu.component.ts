@@ -12,7 +12,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  navegar(ruta:String){
+  navegar(ruta:string){
     this.router.navigateByUrl('/'+ruta);
   }
 }
