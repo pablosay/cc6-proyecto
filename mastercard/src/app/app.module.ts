@@ -10,13 +10,19 @@ import { RegistrarComponent } from './registrar/registrar.component';
 import { IngresarComponent } from './ingresar/ingresar.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
-
+import { PaginaUsuarioComponent } from './pagina-usuario/pagina-usuario.component';
+import { PaginaAdminComponent } from './pagina-admin/pagina-admin.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     RegistrarComponent,
-    IngresarComponent
+    IngresarComponent,
+    PaginaUsuarioComponent,
+    PaginaAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +30,13 @@ import {MatButtonModule} from '@angular/material/button';
     MatToolbarModule,
     MatIconModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSidenavModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
+  exports: [
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

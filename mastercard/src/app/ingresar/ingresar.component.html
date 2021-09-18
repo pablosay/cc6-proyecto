@@ -2,18 +2,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
 <div class = "main_container">
+    <form [formGroup] = "form_inicio_sesion">
     <h1> Inicio de sesion</h1>
     <b> Nombre </b> <br>
-    <mat-form-field appearance="fill">
-        <mat-label> </mat-label>
-        <input matInput>
-    </mat-form-field>
-    <br>
+    <input type="text" placeholder="Ingresar usuario" formControlName="nombre" required>
+    <br><br>
     <b> Password</b> <br>
-    <mat-form-field appearance="fill">
-        <mat-label></mat-label>
-        <input matInput>
-    </mat-form-field> 
+    <input type = "password" placeholder="Ingresar password" formControlName="pw" required>
+    <br><br>
+    <input type = "radio"  formControlName = "tipo" name = "tipo_usuario" value = "admin" formControlName="tipo_usuario">
+    <label> Administrador </label>
     <br>
-    <button mat-button class= "button">Ingresar</button>
+    <input type = "radio" formControlName = "tipo" name = "tipo_usuario" value="cliente" formControlName="tipo_usuario">
+    <label> Cliente</label>
+    <br> <br>
+    <button class= "button" (click)= "goTo()">Ingresar</button>
+    </form>
 </div>
