@@ -1,0 +1,49 @@
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class= "main-container">
+    <form [formGroup] = "form">
+        <h1> DATOS DE TARJETA </h1> 
+        <br>
+        <div class="tarjeta">
+            <img class = "logo" src="./../../assets/images/chip.png"/><br>
+            <input type="text" pattern="\d*" maxlength="16" minlength="16" placeholder="Numero" formControlName = "numero"><br>
+            <b> GOOD THRU </b><br>
+            <select name = "mes" class="firstsel" formControlName = "mes">
+                <option> Mes </option>
+                <option value = '01'> Enero </option>
+                <option value = '02'> Febrero </option>
+                <option value = '03'> Marzo </option>
+                <option value = '04'> Abril </option>
+                <option value = '05'> Mayo </option>
+                <option value = '06'> Junio </option>
+                <option value = '07'> Julio </option>
+                <option value = '08'> Agosto </option>
+                <option value = '09'> Septiembre </option>
+                <option value = '10'> Octubre</option>
+                <option value = '11'> Noviembre </option>
+                <option value = '12'> Diciembre </option>
+            </select>
+            <select name = "year" formControlName = "year">
+                <option> Año </option>
+                <option value='2022'> 2022 </option>
+                <option value='2023'> 2023 </option>
+                <option value='2024'> 2024 </option>
+                <option value='2025'> 2025 </option>
+                <option value='2026'> 2026 </option>
+            </select><br>
+            <input type ="text" placeholder="Tarjetahabiente" formControlName = "nombre_tarjeta"><br>
+            <input type ="text" pattern="\d*" maxlength = "3" minlength = "3" formControlName="CCV" placeholder="CCV"><br>
+            <img class = "logo2" src="./../../assets/images/mastercard_logo.png"/>
+        </div><br><br>
+    <input class="fuera_input" type = "number" placeholder="Ingrese id usuario" formControlName = "id_usuario"><br>
+    <br>
+    <input class = "fuera_input" name = "monto_autorizado" type = "number" placeholder="Monto Autorizado" step ="0.01" formControlName = "monto_autorizado">
+    <br><br>
+    <button class = "ingresar" (click) = "submit()"> Ingresar </button>
+    </form>
+</div>

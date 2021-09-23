@@ -1,1 +1,10 @@
-<p>pagina-admin works!</p>
+<button mat-button [matMenuTriggerFor]="aboveMenu"><mat-icon> account_box </mat-icon> Clientes </button>
+<mat-menu #aboveMenu="matMenu" yPosition="above">
+  <button mat-menu-item routerLink="ingresarcliente"> Ingresar clientes </button>
+  <button mat-menu-item routerLink="verclientes"> Listar clientes </button>
+</mat-menu>
+<button mat-button [matMenuTriggerFor]="belowMenu"> <mat-icon> credit_card </mat-icon> Tarjetas </button>
+<mat-menu #belowMenu="matMenu" yPosition="below">
+  <button mat-menu-item routerLink="emitirtarjeta">Asignar tarjetas</button>
+</mat-menu>
+<router-outlet></router-outlet>

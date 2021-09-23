@@ -1,5 +1,9 @@
-<h1> Bienvenid@</h1>
-<mat-sidenav-container class="example-container">
-    <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
-    <mat-sidenav-content>Main content</mat-sidenav-content>
-</mat-sidenav-container>
+<button mat-button [matMenuTriggerFor]="aboveMenu"><mat-icon> account_box </mat-icon> Perfil </button>
+<mat-menu #aboveMenu="matMenu" yPosition="below">
+  <button mat-menu-item routerLink = "verperfil"> Ver mi perfil </button>
+</mat-menu>
+<button mat-button [matMenuTriggerFor]="belowMenu"> <mat-icon> credit_card </mat-icon> Tarjetas </button>
+<mat-menu #belowMenu="matMenu" yPosition="below">
+  <button mat-menu-item routerLink = "vertarjetas"> Ver mis tarjetas </button>
+</mat-menu>
+<router-outlet></router-outlet>
