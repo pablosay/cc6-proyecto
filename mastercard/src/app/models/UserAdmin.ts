@@ -1,9 +1,7 @@
 export class UserAdmin{
-    id: number;
     nombre:string;
     password:string;
-    constructor(id:number, nombre:string, password:string){
-        this.id = id;
+    constructor(nombre:string, password:string){
         this.nombre = nombre;
         this.password = password
     }

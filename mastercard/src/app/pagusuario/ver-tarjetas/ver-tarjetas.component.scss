@@ -1,0 +1,55 @@
+.tarjeta{
+    margin-left: 50px;
+    border-radius: 2%;
+    position: relative;
+    height: 320px;
+    width: 500px;
+    background-color: rgb(40,40,43);
+    box-shadow: 10px 10px 8px #888888;
+}
+img{
+    margin-top: 5%;
+    margin-left: 10%;
+    height: 40px;
+    width: 60px;
+}
+.logo2{
+    width: 100px;
+    height: 60px;
+    margin-left: 80%;
+}
+p{
+    color: gray;
+    margin-left: 10%;
+    font-size: 18px;
+}
+.fecha{
+    margin-left: 30%;
+}
+.numero{
+    margin-left: 20%;
+    font-size: 24px;
+    font-family: 'Times New Roman', Times;
+    color: rgb(212, 175, 55);
+    letter-spacing: 10px;
+}
+ul{
+    list-style: none;
+}
+li{
+    margin-left: 18%;
+}
+.monto_disponible{
+    color:rgb(92, 12, 12);
+    font-size: 24px;
+
+}
+.monto_autorizado{
+    color:rgb(24, 30, 90);
+    font-size: 24px;   
+}
+.montos{
+    position: relative;
+    left: 600px;
+    bottom: 300px;
+}

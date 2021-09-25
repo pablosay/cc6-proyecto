@@ -1,9 +1,13 @@
-<button mat-button [matMenuTriggerFor]="aboveMenu"><mat-icon> account_box </mat-icon> Perfil </button>
-<mat-menu #aboveMenu="matMenu" yPosition="below">
-  <button mat-menu-item routerLink = "verperfil"> Ver mi perfil </button>
-</mat-menu>
 <button mat-button [matMenuTriggerFor]="belowMenu"> <mat-icon> credit_card </mat-icon> Tarjetas </button>
 <mat-menu #belowMenu="matMenu" yPosition="below">
   <button mat-menu-item routerLink = "vertarjetas"> Ver mis tarjetas </button>
+</mat-menu>
+<button mat-button [matMenuTriggerFor]="aboveMenu"> <mat-icon> history </mat-icon> Historial </button>
+<mat-menu #aboveMenu="matMenu" yPosition="below">
+  <button mat-menu-item routerLink="historial">Ver historial</button>
+</mat-menu>
+<button mat-button [matMenuTriggerFor]="beforeMenu"> <mat-icon> payments </mat-icon> Pago de tarjetas </button>
+<mat-menu #beforeMenu="matMenu" xPosition="before">
+  <button mat-menu-item routerLink="pagartarjetas">  Pagar tarjetas </button>
 </mat-menu>
 <router-outlet></router-outlet>

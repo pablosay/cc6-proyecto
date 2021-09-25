@@ -6,11 +6,11 @@ import { Injectable } from '@angular/core';
 export class UsuarioActualService {
   log_status: boolean;
   type_user: string;
-  userid:number;
+  userid:string;
   constructor() {
     this.log_status = false;
     this.type_user = "";
-    this.userid = 0;
+    this.userid = "";
   }
   //Devuelve el estado in true/out false
   getLoginStatus(){
@@ -20,7 +20,7 @@ export class UsuarioActualService {
   loggedIn(){
     this.log_status = true;
   }
-  loggedUser(type:string, user:number){
+  loggedUser(type:string, user:string){
     this.userid = user;
     this.type_user = type;
   }
@@ -32,7 +32,7 @@ export class UsuarioActualService {
   }
   logOut(){
     this.log_status = false;
-    this.userid = 0;
+    this.userid = "";
     this.type_user = "";
   }
 }

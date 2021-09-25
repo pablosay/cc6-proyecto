@@ -14,11 +14,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmitirTarjetaComponent } from './pagadmin/emitir-tarjeta/emitir-tarjeta.component';
-import { VerClientesComponent } from './pagadmin/ver-clientes/ver-clientes.component';
 import { MatMenuModule} from '@angular/material/menu';
 import { IngresarClienteComponent } from './pagadmin/ingresar-cliente/ingresar-cliente.component';
-import { VerPerfilComponent } from './pagusuario/ver-perfil/ver-perfil.component';
 import { VerTarjetasComponent } from './pagusuario/ver-tarjetas/ver-tarjetas.component';
+import { SistemasReservaComponent } from './pagadmin/sistemas-reserva/sistemas-reserva.component';
+import { PagartarjetaComponent } from './pagusuario/pagartarjeta/pagartarjeta.component';
+import { HistorialComponent } from './pagusuario/historial/historial.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,10 +28,11 @@ import { VerTarjetasComponent } from './pagusuario/ver-tarjetas/ver-tarjetas.com
     PaginaUsuarioComponent,
     PaginaAdminComponent,
     EmitirTarjetaComponent,
-    VerClientesComponent,
     IngresarClienteComponent,
-    VerPerfilComponent,
-    VerTarjetasComponent
+    VerTarjetasComponent,
+    SistemasReservaComponent,
+    PagartarjetaComponent,
+    HistorialComponent
   ],
   imports: [
     BrowserModule,

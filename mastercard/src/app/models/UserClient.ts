@@ -1,10 +1,8 @@
 export class UserClient{
-    id:number;
     nombre:string;
-    password:string;
-    constructor(id:number, nombre:string, password:string){
-        this.id = id;
+    pw:string;
+    constructor(nombre:string, pw:string){
         this.nombre = nombre;
-        this.password = password;
+        this.pw = pw;
     }
 }

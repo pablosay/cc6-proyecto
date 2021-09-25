@@ -6,16 +6,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class= "main-container">
-    <h1> REGISTRO DE CLIENTE <mat-icon style="color: white;"> credit_card </mat-icon> </h1> 
-    <br>
-    <b> Nombre: </b><br>
-    <input type="text">
-    <br><br>
-    <b> Contraseña </b><br>
-    <input type ="password">
-    <br><br>
-    <b> Confirmar contraseña </b><br>
-    <input type ="password">
-    <br><br>
-    <button> Ingresar </button>
+    <form [formGroup] = "form">
+        <h1> REGISTRO DE CLIENTE <mat-icon style="color: white;"> credit_card </mat-icon> </h1> 
+        <br>
+        <b> Nombre: </b><br>
+        <input type="text" placeholder="Ingrese nombre de usuario" formControlName = "nombre">
+        <br><br>
+        <b> Contraseña </b><br>
+        <input type ="password" placeholder="Ingrese contraseña" formControlName = "pw">
+        <br><br>
+        <b> Confirmar contraseña </b><br>
+        <input type ="password" placeholder="Confirme contraseña" formControlName = "pwc">
+        <br><br>
+        <button (click) = "ingresarCliente()"> Ingresar </button>
+    </form>
 </div>

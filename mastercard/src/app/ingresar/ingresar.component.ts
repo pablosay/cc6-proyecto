@@ -12,8 +12,8 @@ import { UserClient } from '../models/UserClient';
 })
 export class IngresarComponent implements OnInit {
   form_inicio_sesion: FormGroup;
-  usuarios_admin: Array<UserAdmin>;
-  usuarios_cliente: Array<UserClient>;
+  usuarios_admin: UserAdmin[];
+  usuarios_cliente: UserClient[];
   constructor(private router:Router, private fb: FormBuilder,private backend: BackendService, private datosingreso: UsuarioActualService) {
     this.usuarios_admin = []; 
     this.usuarios_cliente = [];
@@ -28,20 +28,24 @@ export class IngresarComponent implements OnInit {
 
   goTo(){
     if(this.form_inicio_sesion.controls['tipo_usuario'].value == "admin"){
-      this.backend.tryLogInAdmin(this.form_inicio_sesion.controls['nombre'].value,this.form_inicio_sesion.controls['pw'].value).subscribe(x=> {
+      this.backend.tryLogInAdmin(this.form_inicio_sesion.controls['nombre'].value
+      ,this.form_inicio_sesion.controls['pw'].value).subscribe(x=> {
         this.usuarios_admin = x.nombres;
+        //No obtuvo coincidencias
         if(this.usuarios_admin.length==0){
           alert("Nombre o contrasena incorrecta");
           this.usuarios_admin = [];
           this.router.navigateByUrl("");
         } else {
+          //Encontro el usuario y password
           this.datosingreso.loggedIn();
-          this.datosingreso.loggedUser("admin", this.usuarios_admin[0].id);
-          alert("Ingreso correcto");
-          this.usuarios_admin = [];
+          alert(this.usuarios_admin[0].nombre);
+          this.datosingreso.loggedUser("admin", this.usuarios_admin[0].nombre);
+          this.usuarios_admin = []; 
           this.router.navigateByUrl("pagadmin");
         }
-      });
+      }
+      );
     } else if(this.form_inicio_sesion.controls['tipo_usuario'].value == "cliente"){
       this.backend.tryLogInUser(this.form_inicio_sesion.controls['nombre'].value,this.form_inicio_sesion.controls['pw'].value).subscribe(x=> {
         this.usuarios_cliente = x.nombres;
@@ -51,8 +55,8 @@ export class IngresarComponent implements OnInit {
           this.router.navigateByUrl("");
         } else {
           this.datosingreso.loggedIn();
-          this.datosingreso.loggedUser("cliente", this.usuarios_cliente[0].id);
-          alert("Ingreso correcto");
+          alert(this.usuarios_cliente[0].nombre);
+          this.datosingreso.loggedUser("cliente", this.usuarios_cliente[0].nombre);
           this.usuarios_cliente = [];
           this.router.navigateByUrl("pagusuario");
         }

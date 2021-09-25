@@ -5,10 +5,11 @@ import { PaginaAdminComponent } from './pagina-admin/pagina-admin.component';
 import { PaginaUsuarioComponent } from './pagina-usuario/pagina-usuario.component';
 import { IngresarClienteComponent } from './pagadmin/ingresar-cliente/ingresar-cliente.component';
 import { EmitirTarjetaComponent } from './pagadmin/emitir-tarjeta/emitir-tarjeta.component';
-import { VerClientesComponent } from './pagadmin/ver-clientes/ver-clientes.component';
-import { VerPerfilComponent } from './pagusuario/ver-perfil/ver-perfil.component';
 import { VerTarjetasComponent } from './pagusuario/ver-tarjetas/ver-tarjetas.component';
+import { SistemasReservaComponent } from './pagadmin/sistemas-reserva/sistemas-reserva.component';
 import { MenuComponent } from './menu/menu.component';
+import { HistorialComponent } from './pagusuario/historial/historial.component';
+import { PagartarjetaComponent } from './pagusuario/pagartarjeta/pagartarjeta.component';
 const routes: Routes = [
   {path: 'menucomponent', component: MenuComponent},
   {
@@ -17,15 +18,16 @@ const routes: Routes = [
   {path: 'ingresar', component: IngresarComponent},
   {path: 'pagusuario', component: PaginaUsuarioComponent,
     children: [
-      {path: 'verperfil', component:VerPerfilComponent},
-      {path: 'vertarjetas', component:VerTarjetasComponent}
+      {path: 'vertarjetas', component:VerTarjetasComponent},
+      {path: 'pagartarjetas', component:PagartarjetaComponent},
+      {path: 'historial', component:HistorialComponent}
     ]
   },
   {path: 'pagadmin', component: PaginaAdminComponent,
     children: [
       {path: 'ingresarcliente', component:IngresarClienteComponent},
       {path: 'emitirtarjeta', component:EmitirTarjetaComponent},
-      {path: 'verclientes', component:VerClientesComponent}
+      {path: 'sistemasreserva', component:SistemasReservaComponent}
     ]
   }
 ];
