@@ -1,8 +1,0 @@
-<div class = "principal">
-    <form  [formGroup] = "form">
-        <input type="text" pattern="\d*" maxlength="16" minlength="16" placeholder="Numero" formControlName = "numero"><br>
-        <input  type = "number" placeholder="Monto a pagar" step ="0.01" formControlName = "monto_pago">
-        <br> 
-        <button (click) = "pagar()"> Pagar </button>
-    </form>
-</div>
