@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,kBAAkB,CAAC;EACjB,QAAQ,EAAE,QAAQ;EAClB,GAAG,EAAE,CAAC;EACN,MAAM,EAAE,CAAC;EACT,IAAI,EAAE,CAAC;EACP,KAAK,EAAE,CAAC;EACR,UAAU,EAAE,KAAK;CAClB",
-    "sources": [
-        "pagina-usuario.component.scss"
-    ],
-    "names": [],
-    "file": "pagina-usuario.component.css"
-}
