@@ -12,6 +12,8 @@ import { ListaTarjetas } from '../models/ListaTarjetas';
 import { ListaNumero } from '../models/ListaNumero';
 import { ListaMonto } from '../models/ListaMonto';
 import { GuardarPago } from '../models/GuardarPago';
+import { ListaConsumos } from '../models/ListaConsumos';
+import { ListaPagos } from '../models/ListaPagos';
 const BE_API = environment.urlBackEnd;
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -67,5 +69,13 @@ export class BackendService {
   tryUpdateStore(nombre:string, ip: string){
     let url: string = BE_API + "/pagadmin/tiendas/tienda/"+nombre+ "/ip/"+ip;
     return this.http.put<TiendaIpList>(url, httpOptions);
+  }
+  tryGetConsumos(numero:number){
+    let url: string = BE_API + "/pagusuario/historial/consumos/numero/"+numero;
+    return this.http.get<ListaConsumos>(url, httpOptions);
+  }
+  tryGetPagos(numero:number){
+    let url: string = BE_API + "/pagusuario/historial/pagos/numero/"+numero;
+    return this.http.get<ListaPagos>(url, httpOptions);
   }
 }

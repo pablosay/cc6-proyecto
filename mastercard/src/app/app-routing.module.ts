@@ -6,7 +6,6 @@ import { PaginaUsuarioComponent } from './pagina-usuario/pagina-usuario.componen
 import { IngresarClienteComponent } from './pagadmin/ingresar-cliente/ingresar-cliente.component';
 import { EmitirTarjetaComponent } from './pagadmin/emitir-tarjeta/emitir-tarjeta.component';
 import { VerTarjetasComponent } from './pagusuario/ver-tarjetas/ver-tarjetas.component';
-import { SistemasReservaComponent } from './pagadmin/sistemas-reserva/sistemas-reserva.component';
 import { MenuComponent } from './menu/menu.component';
 import { HistorialComponent } from './pagusuario/historial/historial.component';
 import { PagartarjetaComponent } from './pagusuario/pagartarjeta/pagartarjeta.component';
@@ -26,8 +25,7 @@ const routes: Routes = [
   {path: 'pagadmin', component: PaginaAdminComponent,
     children: [
       {path: 'ingresarcliente', component:IngresarClienteComponent},
-      {path: 'emitirtarjeta', component:EmitirTarjetaComponent},
-      {path: 'sistemasreserva', component:SistemasReservaComponent}
+      {path: 'emitirtarjeta', component:EmitirTarjetaComponent}
     ]
   }
 ];

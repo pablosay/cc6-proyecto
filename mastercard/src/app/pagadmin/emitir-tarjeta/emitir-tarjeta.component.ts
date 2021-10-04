@@ -25,24 +25,30 @@ export class EmitirTarjetaComponent implements OnInit {
   ngOnInit(): void {
   }
   submit(){
-    this.backend.trySaveCreditCard(this.form.controls['numero'].value, this.form.controls['nombre_tarjeta'].value,
-    this.form.controls['year'].value + this.form.controls['mes'].value+"01", this.form.controls['CCV'].value,
-    this.form.controls['monto_autorizado'].value, this.form.controls['monto_autorizado'].value, this.form.controls['id_usuario'].value,
-    this.usuarioadmin.getLoggedUser()).subscribe( x => {
-      if(x.status == 1){
-        alert('Ingreso de tarjeta correcto');
-        this.form = this.fb.group({
-          numero: [''],
-          mes: ['Mes'],
-          year: ['Año'],
-          nombre_tarjeta: [''],
-          CCV: [''],
-          id_usuario: [''],
-          monto_autorizado: []
-        })
-      } else {
-        alert('Ingreso mal algun dato');
-      }
-    });
+    if(!(this.form.controls['numero'].value ==="" || this.form.controls['nombre_tarjeta'].value ==="" ||
+    this.form.controls['year'].value === "" || this.form.controls['mes'].value === "" || 
+    this.form.controls['CCV'].value == '' || this.form.controls['monto_autorizado'].value == '' || 
+    this.form.controls['monto_autorizado'].value == '' ||  this.form.controls['id_usuario'].value == '')){
+      
+      this.backend.trySaveCreditCard(this.form.controls['numero'].value, this.form.controls['nombre_tarjeta'].value,
+      this.form.controls['year'].value + this.form.controls['mes'].value+"01", this.form.controls['CCV'].value,
+      this.form.controls['monto_autorizado'].value, this.form.controls['monto_autorizado'].value, this.form.controls['id_usuario'].value,
+      this.usuarioadmin.getLoggedUser()).subscribe( x => {
+        if(x.status == 1){
+          alert('Ingreso de tarjeta correcto');
+          this.form = this.fb.group({
+            numero: [''],
+            mes: ['Mes'],
+            year: ['Año'],
+            nombre_tarjeta: [''],
+            CCV: [''],
+            id_usuario: [''],
+            monto_autorizado: []
+          })
+        } else {
+          alert('Ingreso mal algun dato');
+        }
+      });
+    }
   }
 }

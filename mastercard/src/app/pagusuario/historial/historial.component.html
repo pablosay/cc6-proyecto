@@ -1,1 +1,33 @@
-<p>historial works!</p>
+<div *ngFor = "let historial of ListaHistoriales">  
+<h1> Tarjeta: {{historial.numero}}</h1>
+<h2 class="pagos"> Pagos </h2>
+<table>
+    <tr>
+        <th> Numero </th>
+        <th> Fecha </th>
+        <th> Monto </th> 
+    </tr>
+     
+    <tr *ngFor = "let pago of historial.pagos"> 
+        <td> {{pago.numero_pago}} </td>
+        <td> {{pago.fecha_pago}}</td>
+        <td> {{pago.monto_pago}} </td> 
+    </tr> 
+</table>
+<h2 class = "consumos"> Consumos </h2>
+<table> 
+    <tr>
+        <th> Numero </th>
+        <th> Fecha </th>
+        <th> Tienda </th>
+        <th> Monto </th>
+    </tr>
+    <tr *ngFor = "let consumo of historial.consumos"> 
+        <td> {{consumo.numero_consumo}} </td>
+        <td> {{consumo.fecha_consumo}} </td>
+        <td> {{consumo.nombre_tienda}} </td>
+        <td> {{consumo.monto_consumo}} </td>
+        </tr>
+    
+</table>
+</div>

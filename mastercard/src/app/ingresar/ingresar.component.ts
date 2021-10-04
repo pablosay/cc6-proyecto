@@ -27,40 +27,45 @@ export class IngresarComponent implements OnInit {
   }
 
   goTo(){
-    if(this.form_inicio_sesion.controls['tipo_usuario'].value == "admin"){
-      this.backend.tryLogInAdmin(this.form_inicio_sesion.controls['nombre'].value
-      ,this.form_inicio_sesion.controls['pw'].value).subscribe(x=> {
-        this.usuarios_admin = x.nombres;
-        //No obtuvo coincidencias
-        if(this.usuarios_admin.length==0){
-          alert("Nombre o contrasena incorrecta");
-          this.usuarios_admin = [];
-          this.router.navigateByUrl("");
-        } else {
-          //Encontro el usuario y password
-          this.datosingreso.loggedIn();
-          alert(this.usuarios_admin[0].nombre);
-          this.datosingreso.loggedUser("admin", this.usuarios_admin[0].nombre);
-          this.usuarios_admin = []; 
-          this.router.navigateByUrl("pagadmin");
+    if(!(this.form_inicio_sesion.controls['tipo_usuario'].value === "" ||
+    this.form_inicio_sesion.controls['nombre'].value === "" || 
+    this.form_inicio_sesion.controls['pw'].value == "" || this.form_inicio_sesion.controls['tipo_usuario'].value == "")){
+      if(this.form_inicio_sesion.controls['tipo_usuario'].value == "admin"){
+        this.backend.tryLogInAdmin(this.form_inicio_sesion.controls['nombre'].value
+        ,this.form_inicio_sesion.controls['pw'].value).subscribe(x=> {
+          this.usuarios_admin = x.nombres;
+          //No obtuvo coincidencias
+          if(this.usuarios_admin.length==0){
+            alert("Nombre o contrasena incorrecta");
+            this.usuarios_admin = [];
+            this.router.navigateByUrl("");
+          } else {
+            //Encontro el usuario y password
+            this.datosingreso.loggedIn();
+            this.datosingreso.loggedUser("admin", this.usuarios_admin[0].nombre);
+            this.usuarios_admin = []; 
+            this.router.navigateByUrl("pagadmin");
+          }
         }
+        );
+      } else if(this.form_inicio_sesion.controls['tipo_usuario'].value == "cliente"){
+        this.backend.tryLogInUser(this.form_inicio_sesion.controls['nombre'].value,this.form_inicio_sesion.controls['pw'].value).subscribe(x=> {
+          this.usuarios_cliente = x.nombres;
+          if(this.usuarios_cliente.length==0){
+            alert("Nombre o contrasena incorrecta");
+            this.usuarios_cliente = [];
+            this.router.navigateByUrl("");
+          } else {
+            this.datosingreso.loggedIn();
+            alert(this.usuarios_cliente[0].nombre);
+            this.datosingreso.loggedUser("cliente", this.usuarios_cliente[0].nombre);
+            this.usuarios_cliente = [];
+            this.router.navigateByUrl("pagusuario");
+          }
+        });      
       }
-      );
-    } else if(this.form_inicio_sesion.controls['tipo_usuario'].value == "cliente"){
-      this.backend.tryLogInUser(this.form_inicio_sesion.controls['nombre'].value,this.form_inicio_sesion.controls['pw'].value).subscribe(x=> {
-        this.usuarios_cliente = x.nombres;
-        if(this.usuarios_cliente.length==0){
-          alert("Nombre o contrasena incorrecta");
-          this.usuarios_cliente = [];
-          this.router.navigateByUrl("");
-        } else {
-          this.datosingreso.loggedIn();
-          alert(this.usuarios_cliente[0].nombre);
-          this.datosingreso.loggedUser("cliente", this.usuarios_cliente[0].nombre);
-          this.usuarios_cliente = [];
-          this.router.navigateByUrl("pagusuario");
-        }
-      });      
+    } else {
+      alert("Llene completo el formulario");
     }
   }
 }

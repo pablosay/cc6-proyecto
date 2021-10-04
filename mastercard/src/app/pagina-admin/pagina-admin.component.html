@@ -1,13 +1,9 @@
 <button mat-button [matMenuTriggerFor]="aboveMenu"><mat-icon> account_box </mat-icon> Clientes </button>
-<mat-menu #aboveMenu="matMenu" yPosition="above">
+<mat-menu #aboveMenu="matMenu" yPosition="below">
   <button mat-menu-item routerLink="ingresarcliente"> Ingresar clientes </button>
 </mat-menu>
 <button mat-button [matMenuTriggerFor]="belowMenu"> <mat-icon> credit_card </mat-icon> Tarjetas </button>
 <mat-menu #belowMenu="matMenu" yPosition="below">
   <button mat-menu-item routerLink="emitirtarjeta">Asignar tarjetas</button>
-</mat-menu>
-<button mat-button [matMenuTriggerFor]="beforeMenu"> <mat-icon> airplane_ticket </mat-icon> Sistemas de reserva </button>
-<mat-menu #beforeMenu="matMenu" xPosition="before">
-  <button mat-menu-item routerLink="sistemasreserva">Mantenimiento</button>
 </mat-menu>
 <router-outlet></router-outlet>

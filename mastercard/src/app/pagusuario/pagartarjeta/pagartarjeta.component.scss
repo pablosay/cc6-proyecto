@@ -1,0 +1,33 @@
+.principal{
+    width: 200px;
+    height: 200px;
+    background-color: slategrey;
+    margin-left: 42%;
+    margin-top:  10%;
+    border-radius: 4px;
+    box-shadow: 5px 10px rgba(172, 172, 172, 0.507);
+}
+input{
+    margin-top: 10%;
+    margin-left: 5%;
+    size: 5%;
+    font-size: 14px;
+    color: white;
+    border: none;
+    outline: none;
+    border-bottom: solid 1px white;
+    background-color: slategrey;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+b {
+    color: white;
+    margin-left: 20%;
+}
+button {
+    margin-top: 20%;
+    margin-left: 35%;
+}

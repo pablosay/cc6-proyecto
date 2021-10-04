@@ -22,49 +22,49 @@ export class PagartarjetaComponent implements OnInit {
     
   }
   pagar(){
-    alert(this.form.controls['numero'].value);
-    let today = new Date().toISOString().slice(0, 10);
-    let monto_autorizado:number = 0;
-    let monto_disponible: number = 0;
-    console.log(this.form.controls['numero'].value);
-    this.backend.tryGetMontoAut(this.form.controls['numero'].value).subscribe(response => {
-      monto_autorizado = response.montos[0].monto_autorizado;
-      monto_disponible = response.montos[0].monto_disponible;
-      let a:number = +Number(monto_disponible) + +Number(this.form.controls['monto_pago'].value);
-      alert(a);
-      if((this.form.controls['monto_pago'].value>(monto_autorizado)) || a > monto_autorizado){
-        alert("El pago excede el limite");
-      } else if(((this.form.controls['monto_pago'].value) == 0)){
-        alert ("Ingrese un valor correcto");
-      } else {
-        //update tarjeta
-        this.backend.tryUpdateTarjeta(this.form.controls['numero'].value, this.form.controls['monto_pago'].value).subscribe(response => {
-          if(response.status == 1){
-            alert("Se actualizaron los datos de su tarjeta");
-            this.form = this.fb.group({
-              numero: [''],
-              monto_pago: 0
-            })
-          } else {
-            alert ("Algo fallo");
-          }
-        });
-        //Ingresar a pagos
-        this.backend.tryInsertPago(this.form.controls['monto_pago'].value, today, this.form.controls['numero'].value).subscribe(response => {
-          if(response.status == 1){
-            alert("Se ingreso correctamente el pago");
-            this.form = this.fb.group({
-              numero: [''],
-              monto_pago: 0
-            })
-          } else {
-            alert ("Algo fallo");
-          }
-        });
-      }
-    });
+    if(this.form.controls['numero'].value === "" || this.form.controls['monto_pago'].value === ""){
+      alert("Llene el formulario");
+    } else {
+      let today = new Date().toISOString().slice(0, 10);
+      let monto_autorizado:number = 0;
+      let monto_disponible: number = 0;
+      this.backend.tryGetMontoAut(this.form.controls['numero'].value).subscribe(response => {
+        monto_autorizado = response.montos[0].monto_autorizado;
+        monto_disponible = response.montos[0].monto_disponible;
+        let a:number = +Number(monto_disponible) + +Number(this.form.controls['monto_pago'].value);
+        if((this.form.controls['monto_pago'].value>(monto_autorizado)) || a > monto_autorizado){
+          alert("El pago excede el limite");
+        } else if(((this.form.controls['monto_pago'].value) == 0)){
+          alert ("Ingrese un valor correcto");
+        } else {
+          //update tarjeta
+          this.backend.tryUpdateTarjeta(this.form.controls['numero'].value, this.form.controls['monto_pago'].value).subscribe(response => {
+            if(response.status == 1){
+              alert("Se actualizaron los datos de su tarjeta");
+              this.form = this.fb.group({
+                numero: [''],
+                monto_pago: 0
+              })
+            } else {
+              alert ("Algo fallo");
+            }
+          });
+          //Ingresar a pagos
+          this.backend.tryInsertPago(this.form.controls['monto_pago'].value, today, this.form.controls['numero'].value).subscribe(response => {
+            if(response.status == 1){
+              alert("Se ingreso correctamente el pago");
+              this.form = this.fb.group({
+                numero: [''],
+                monto_pago: 0
+              })
+            } else {
+              alert ("Algo fallo");
+            }
+          });
+        }
+      });
+    }
   }
-
 
 
 }

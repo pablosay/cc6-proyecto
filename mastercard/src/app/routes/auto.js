@@ -1,7 +1,7 @@
 const client = require('../../config/database');
 
 module.exports = (app) =>{
-    app.get("/auto", async function(req,res,next)  {
+    app.get("/autorizacion", async function(req,res,next)  {
 
         var tarjeta = req.query.tarjeta;
         var nombre = req.query.nombre;
@@ -19,10 +19,7 @@ module.exports = (app) =>{
         console.log(num_seguridad);
         console.log(monto);
         console.log(tienda);
-        
-        
-
-        
+         
         if (typeof tarjeta == "undefined" || tarjeta.length != 16) 
         {
             resultado = "ERROR";
@@ -72,7 +69,7 @@ module.exports = (app) =>{
         //hasta aqui todo bien, desarrollemos las chivas
         if (resultado != "ERROR")
         {
-            let qry = "select miconsumo(cast("+tarjeta+" as bigint), '"+nombre+"', '"+fecha_venc+"', "+num_seguridad+", cast("+monto+" as money), '"+tienda+"') as autorizacion";
+            let qry = "select miconsumo(cast("+tarjeta+" as bigint), '"+nombre+"', '"+fecha_venc+"', "+num_seguridad+", cast("+monto+" as numeric), '"+tienda+"') as autorizacion";
 
        
 
@@ -105,14 +102,14 @@ module.exports = (app) =>{
 
 
         if (resultado == "ERROR") {
-            if (typeof formato != "undefined" && formato == "json") {
+            if (typeof formato != "undefined" && formato == "JSON") {
                 
                 res.json({
                     autentificacion :
                     {
                         emisor:"MASTERCARD",
                         tarjeta: tarjeta,
-                        status : "DENEGADO t",
+                        status : "DENEGADO",
                         numero: "0"
                     }
                 });

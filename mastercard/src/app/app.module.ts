@@ -17,7 +17,6 @@ import { EmitirTarjetaComponent } from './pagadmin/emitir-tarjeta/emitir-tarjeta
 import { MatMenuModule} from '@angular/material/menu';
 import { IngresarClienteComponent } from './pagadmin/ingresar-cliente/ingresar-cliente.component';
 import { VerTarjetasComponent } from './pagusuario/ver-tarjetas/ver-tarjetas.component';
-import { SistemasReservaComponent } from './pagadmin/sistemas-reserva/sistemas-reserva.component';
 import { PagartarjetaComponent } from './pagusuario/pagartarjeta/pagartarjeta.component';
 import { HistorialComponent } from './pagusuario/historial/historial.component';
 @NgModule({
@@ -30,7 +29,6 @@ import { HistorialComponent } from './pagusuario/historial/historial.component';
     EmitirTarjetaComponent,
     IngresarClienteComponent,
     VerTarjetasComponent,
-    SistemasReservaComponent,
     PagartarjetaComponent,
     HistorialComponent
   ],
