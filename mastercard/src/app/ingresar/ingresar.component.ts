@@ -57,7 +57,6 @@ export class IngresarComponent implements OnInit {
             this.router.navigateByUrl("");
           } else {
             this.datosingreso.loggedIn();
-            alert(this.usuarios_cliente[0].nombre);
             this.datosingreso.loggedUser("cliente", this.usuarios_cliente[0].nombre);
             this.usuarios_cliente = [];
             this.router.navigateByUrl("pagusuario");
