@@ -120,7 +120,7 @@ module.exports = (app) =>{
             }
         } else
         {
-            if (formato == "json") {
+            if (formato == "JSON") {
                 res.json({
                     autentificacion :
                     {
