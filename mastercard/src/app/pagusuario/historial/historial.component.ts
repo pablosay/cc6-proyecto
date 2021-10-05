@@ -17,7 +17,7 @@ export class HistorialComponent implements OnInit {
     this.ListaHistoriales = [];
   }
   ngOnInit(): void {
-    this.backend.tryGetNumeroTarjetas("suzanne").subscribe(data => {
+    this.backend.tryGetNumeroTarjetas(this.usuario.getLoggedUser()).subscribe(data => {
       this.tarjetas = data.numeros;
       for(let numerotarjeta of this.tarjetas){
         this.backend.tryGetConsumos(numerotarjeta.numero).subscribe(data_consumos => {
